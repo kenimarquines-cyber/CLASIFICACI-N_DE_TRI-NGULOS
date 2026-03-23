@@ -1,49 +1,62 @@
-
-
 import math
 
+print(" :v CLASIFICADOR DE TRIÁNGULOS :v ")
+
+historial = []  
+tipo=0
 lados=0
-lado1=0
-lado2=0
-lado3=0
-
-opcion=0
-area=0
+l1=0
+l2=0
+l3=0
+opciones=0
 perimetro=0
-
-
-historial = []
+area=0
+registro=0
+resultado=0
 
 while True:
 
-    lados = int(input("¿Cuantos lados tiene la figura?: "))
+    print("\n")
 
-    if lados != 3:
-        print("La figura no es un triangulo vualve a ingresar los datos")
-    else:
-        lado1 = float(input("Ingrese el lado 1: "))
-        lado2 = float(input("Ingrese el lado 2: "))
-        lado3 = float(input("Ingrese el lado 3: "))
+    opciones = input("1. Nueva consulta\n2. Ver historial\n3. Salir\nSeleccione una opcion: ")
 
-        if lado1 == lado2 == lado3:
-            print("el triangulo es un Equilatero")
-        elif lado1 == lado2 or lado1 == lado3 or lado2 == lado3:
-            print("el triangulo es un Isosceles")
+    if opciones == "3":
+        print("Gracias por usar el clasificador de triangulos")
+        break
+    
+    if opciones == "2":
+
+        print("\n**** HISTORIAL DE CONSULTAS ****")
+        if not historial:
+            print("No hay consultas.")
+
         else:
-            print("el triangulo es un Escaleno")
-
-    print("1.calcular el area del triangulo")  
-    print("2.calcular el perimetro del triangulo")  
-    print("3. ninguna ")  
-
-    opcion=input("¿que opcion necesita saber?")
-
-    if opcion =="1":
-
-        s=(lado1 + lado2 + lado3) / 2
-        area=math.sqrt()
-
-
-
-           
+            for item in historial:
+                print(f"• {item}")
         
+
+    if opciones == "1":
+        lados = int(input("\n¿Cuántos lados tiene la figura?: "))
+        
+        if lados != 3:
+            print("\nLos datos ingresasor no pertenecen a un triangulo.")
+            print("\nvuelve a intentarlo")
+            
+
+        l1 = float(input("Lado 1: "))
+        l2 = float(input("Lado 2: "))
+        l3 = float(input("Lado 3: "))
+
+
+        if l1 == l2 == l3:
+            tipo = "Equilátero"
+        elif l1 == l2 or l1 == l3 or l2 == l3:
+            tipo = "Isósceles"
+        else:
+            tipo = "Escaleno"
+        
+        print("\nEs un triángulo: ",tipo)
+
+        perimetro = l1 + l2 + l3
+        s = perimetro / 2
+        area = math.sqrt
