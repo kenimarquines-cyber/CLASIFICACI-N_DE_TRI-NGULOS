@@ -59,4 +59,25 @@ while True:
 
         perimetro = l1 + l2 + l3
         s = perimetro / 2
-        area = math.sqrt
+        area = math.sqrt(abs(s * (s - l1) * (s - l2) * (s - l3)))
+
+        
+        registro = f"T. {tipo} ({l1}, {l2}, {l3}) -> "
+
+        if opcion == "1":
+            resultado = f"Área: {area:.2f}"
+            print(resultado)
+            historial.append(registro + resultado)
+
+        elif opcion == "2":
+            resultado = f"Perímetro: {perimetro:.2f}"
+            print(resultado)
+            historial.append(registro + resultado)
+
+        elif opcion == "3":
+            resultado = f"Área: {area:.2f} y Perímetro: {perimetro:.2f}"
+            print(resultado)
+            historial.append(registro + resultado)
+
+        else:
+            print("Opción no válida, no se guardó en el historial.")
